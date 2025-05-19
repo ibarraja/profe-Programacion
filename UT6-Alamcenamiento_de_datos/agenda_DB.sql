@@ -18,7 +18,7 @@ CREATE TABLE Contactos (
 
 -- Insertar los contactos del ejemplo
 INSERT INTO Contactos (nombre, apellidos, email, fecha_nacimiento) VALUES
-('Mortadelo', 'Mortadelo', 'mortadelo@kk.com', STR_TO_DATE('01/01/1900', '%d/%m/%Y')),
-('Filemon', 'Filemon', 'filemon@kk.com', STR_TO_DATE('05/01/1900', '%d/%m/%Y')),
-('Juan', 'Perez Cano', 'juan@kk.com', STR_TO_DATE('08/11/1979', '%d/%m/%Y')),
-('Celia', 'Perez Cano', 'celia@kk.com', STR_TO_DATE('21/01/1986', '%d/%m/%Y'));
+    ('Mortadelo', 'Mortadelo', 'mortadelo@kk.com', STR_TO_DATE('01/01/1900', '%d/%m/%Y')),
+    ('Filemon', 'Filemon', 'filemon@kk.com', STR_TO_DATE('05/01/1900', '%d/%m/%Y')),
+    ('Juan', 'Perez Cano', 'juan@kk.com', STR_TO_DATE('08/11/1979', '%d/%m/%Y')),
+    ('Celia', 'Perez Cano', 'celia@kk.com', STR_TO_DATE('21/01/1986', '%d/%m/%Y'));
