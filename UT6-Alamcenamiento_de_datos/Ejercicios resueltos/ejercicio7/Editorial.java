@@ -32,4 +32,30 @@ public class Editorial {
     public ArrayList<Publicacion> getPublicaciones() {
         return publicaciones;
     }
+    
+    public void detallesPublicacion(String cod) {
+        boolean cod_encontrado = false;
+        for (Publicacion p : publicaciones) {
+            if (p.codigo.equals(cod)){
+                p.detallesPublicacion();
+                cod_encontrado = true;
+            }
+        }
+        if (!cod_encontrado) {
+            System.out.println("Error: no existe el codigo "+ cod + " en esta editorial.");
+        } 
+    }
+    
+    public void prestarLibro(String cod) {
+        boolean encontrado = false;
+        for (Publicacion pub : publicaciones) {
+            if (pub instanceof Libro && pub.getCodigo().equalsIgnoreCase(cod)) {
+                encontrado = true;
+
+                Libro libro = (Libro) pub;
+                
+                libro.prestar();
+            }
+        }
+    }
 }

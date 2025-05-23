@@ -4,6 +4,8 @@
  */
 package ejercicio7;
 
+import org.json.JSONObject;
+
 /**
  *
  * @author Javier
@@ -30,17 +32,13 @@ public class Libro extends Publicacion{
             this.prestado = true;
             System.out.println("Libro prestado!");
         } else {
-            System.out.println("Error: No puedes prestar un libro que ya ha sido prestado.");
+            this.prestado = false;
+            System.out.println("Libro devuelto!");
         }
     }
     
     public void devolver() {
-        if (this.prestado == true) {
-            this.prestado = false;
-            System.out.println("Libro devuelto!");
-        } else {
-            System.out.println("Error: No puedes devolver un libro que no ha sido prestado.");
-        }
+        
     }
     
     @Override
@@ -48,5 +46,29 @@ public class Libro extends Publicacion{
         String estado = prestado ? "PRESTADO" : "DISPONIBLE";
         return String.format("LIBRO   [%-5s] %-20s %2dª edicion(%s)", 
                                 codigo, titulo, num_edicion, estado);
+    }
+    
+    @Override
+    public void detallesPublicacion() {
+        
+        JSONObject datos_autor = BD_AutoresSQL.obtenerDatosAutor(this.dni_autor);
+        
+        this.nombre_autor = (String)datos_autor.opt("nombre");
+        this.pais_autor = (String)datos_autor.opt("pais");
+        
+        
+        System.out.println("DETALLES DEL LIBRO");
+        System.out.println("=============================================================");
+        System.out.println("Codigo > "+this.codigo);
+        System.out.println("Titulo > "+this.titulo);
+        System.out.println("Num Edicion > "+this.titulo);
+        System.out.println("Nombre autor > "+this.nombre_autor);
+        System.out.println("Pais autor > "+this.pais_autor);
+        if (this.prestado) {
+            System.out.println("ESTADO > PRESTADO");
+        } else {
+            System.out.println("ESTADO > DISPONIBLE");
+        }
+        
     }
 }

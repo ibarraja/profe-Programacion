@@ -56,32 +56,31 @@ public class main {
             System.out.print("Elige una opcion > ");
             Scanner sc = new Scanner(System.in);
             opcion = sc.nextLine();
-
+            String codigo = "";
             switch (opcion) {
                 case "1":
-                    editorial.agregarPublicacion(addLibro());
+                    editorial.agregarPublicacion(createLibro());
                     break;
                 case "2":
                     editorial.agregarPublicacion(addRevista());
                     break;
                 case "3":
-                    
                     boolean encontrado = false;
                     System.out.print("Dime el codigo del libro > ");
-                    String codigo = sc.nextLine();
-                    for (Publicacion pub : editorial.getPublicaciones()) {
-                        if (pub instanceof Libro && pub.getCodigo().equalsIgnoreCase(codigo)) {
-                            encontrado = true;
-                            
-                            Libro libro = (Libro) pub;
-                        }
-                    }
+                    codigo = sc.nextLine();
+                    
+                    editorial.prestarLibro(codigo);
+                    
                     break;
                 case "4":
                     
                     break;
                 case "5":
-                    
+                    System.out.print("Introduce el codigo identificador de la publicacion >");
+                    codigo = sc.nextLine();
+                    System.out.println("=============================================================");
+                    editorial.detallesPublicacion(codigo);
+                    System.out.println("=============================================================");
                     break;
 
                 case "6":
@@ -99,8 +98,8 @@ public class main {
     }
     
     
-    public static Libro addLibro() {
-        Scanner sc = new Scanner(System.in);
+    public static Libro createLibro() {
+        sc = new Scanner(System.in);
         System.out.println("Como se llama el nuevo libro?");
         String nombre_libro = sc.nextLine();
         System.out.println("Codigo del libro?");

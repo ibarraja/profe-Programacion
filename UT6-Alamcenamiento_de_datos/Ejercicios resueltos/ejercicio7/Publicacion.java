@@ -37,4 +37,6 @@ public abstract class Publicacion {
     }
     
     public abstract void imprimir();
+    
+    public abstract void detallesPublicacion();
 }

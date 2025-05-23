@@ -27,8 +27,7 @@ public class Revista extends Publicacion {
     @Override
     public void imprimir() {
         System.out.printf("REVISTA [%-5s] %-20s %2d ejemplares - %-10s%n", 
-                     codigo, titulo, numeros.size(), periocidad);
-        
+                     codigo, titulo, numeros.size(), periocidad); 
     }
     
     public void addNumero() {
@@ -60,4 +59,7 @@ public class Revista extends Publicacion {
         return String.format("REVISTA [%-5s] %-20s %2d ejemplares - %-10s", 
                      codigo, titulo, numeros.size(), periocidad);
     }
+
+     @Override
+    public void detallesPublicacion() {}
 }
